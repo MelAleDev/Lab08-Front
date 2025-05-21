@@ -203,8 +203,8 @@ const RegisterPage = () => {
                   onChange={handleChange}
                   className="pharmacy-select"
                 >
-                  <option value="user">Cliente</option>
-                  <option value="pharmacist">Farmacéutico</option>
+                  <option value="user">Usuario</option>
+                  <option value="moderator">Moderador</option>
                   <option value="admin">Administrador</option>
                 </select>
                 <div className="pharmacy-input-hint">* Solo personal autorizado puede crear cuentas especiales</div>
