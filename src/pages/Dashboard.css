@@ -1,0 +1,218 @@
+/* Dashboard.css - Estilo modernizado con colores del FC Barcelona */
+:root {
+  --barca-blue: #004d98;
+  --barca-dark-blue: #002f5b;
+  --barca-red: #a50044;
+  --barca-dark-red: #7a0033;
+  --barca-gold: #edbb00;
+  --barca-light: #f2f2f2;
+  --barca-gradient: linear-gradient(45deg, var(--barca-dark-blue) 0%, var(--barca-blue) 50%, var(--barca-red) 100%);
+}
+
+.dashboard-container {
+  background-color: var(--barca-light);
+  min-height: 100vh;
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+}
+
+/* Tarjeta de bienvenida - Diseño moderno */
+.welcome-card {
+  background: var(--barca-gradient);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 77, 152, 0.2);
+}
+
+.welcome-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(237, 187, 0, 0.1) 0%, transparent 70%);
+  transform: rotate(30deg);
+}
+
+.avatar-lg {
+  width: 70px;
+  height: 70px;
+  font-size: 28px;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  border: 2px solid white;
+}
+
+/* Botones de acción - Estilo moderno */
+.btn-action-card {
+  border: none;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-action-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--barca-gradient);
+  transition: all 0.3s ease;
+}
+
+.btn-action-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 77, 152, 0.15);
+}
+
+.btn-action-card:hover::before {
+  height: 8px;
+}
+
+.btn-action-card i {
+  background: var(--barca-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Timeline de actividad - Estilo moderno */
+.activity-timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.activity-item {
+  position: relative;
+  padding-bottom: 1.5rem;
+  padding-left: 1rem;
+  border-left: 2px solid rgba(0, 77, 152, 0.1);
+  margin-left: 0.5rem;
+}
+
+.activity-item:last-child {
+  border-left: 2px solid transparent;
+}
+
+.activity-badge {
+  position: absolute;
+  left: -0.6rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  top: 0.25rem;
+  border: 2px solid white;
+  box-shadow: 0 0 0 2px var(--barca-blue);
+}
+
+.activity-content {
+  background: white;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Estadísticas - Diseño moderno */
+.stats-card {
+  border-radius: 12px;
+  overflow: hidden;
+  border: none;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.stats-card .card-header {
+  background: var(--barca-gradient);
+  color: white;
+  border-bottom: none;
+}
+
+.stat-item {
+  position: relative;
+  padding: 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-3px);
+}
+
+.stat-item h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  position: relative;
+  display: inline-block;
+}
+
+.stat-item h3::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 3px;
+  background: var(--barca-gold);
+  border-radius: 3px;
+}
+
+/* Animación para spinner */
+.dashboard-loading {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--barca-gradient);
+  color: white;
+}
+
+.dashboard-loading .spinner-border {
+  width: 4rem;
+  height: 4rem;
+  border-width: 0.25rem;
+  border-color: white;
+  border-right-color: transparent;
+}
+
+/* Efectos globales */
+.card {
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 10px 30px rgba(0, 77, 152, 0.15);
+}
+
+.btn-outline-secondary {
+  border-color: var(--barca-blue);
+  color: var(--barca-blue);
+}
+
+.btn-outline-secondary:hover {
+  background: var(--barca-blue);
+  color: white;
+}
+
+/* Tipografía */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}

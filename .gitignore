@@ -1,0 +1,9 @@
+# Carpeta de dependencias
+
+/node_modules
+
+# variables de entorno
+
+.env
+
+README.md

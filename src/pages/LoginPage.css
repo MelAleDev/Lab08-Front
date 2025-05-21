@@ -1,0 +1,469 @@
+/* FC Barcelona Theme */
+:root {
+  --barca-blue: #004d98;
+  --barca-dark-blue: #003366;
+  --barca-red: #a50044;
+  --barca-dark-red: #7a0033;
+  --barca-gold: #edbb00;
+  --barca-yellow: #ffed02;
+  --barca-light: #f5f5f5;
+  --barca-grey: #ebebeb;
+  --barca-dark-grey: #444444;
+}
+
+/* Reset de estilos globales para pantalla completa */
+html, body, #root, #app {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden; /* Previene scrollbars */
+  box-sizing: border-box;
+}
+
+.barca-login-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(0, 77, 152, 0.8), rgba(165, 0, 68, 0.8)),
+    url('https://images.unsplash.com/photo-1589487391730-58f20eb2c308?q=80&w=3000') no-repeat center center;
+  background-size: cover;
+  font-family: 'Montserrat', sans-serif;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.barca-login-card {
+  width: 100%;
+  max-width: 400px;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+  margin: 0 auto; /* Centra la tarjeta */
+}
+
+.barca-login-card:hover {
+  transform: translateY(-5px);
+}
+
+.barca-login-header {
+  position: relative;
+  height: 140px;
+  background: var(--barca-blue);
+  overflow: hidden;
+}
+
+.barca-stripes {
+  display: flex;
+  height: 100%;
+}
+
+.barca-stripe {
+  flex: 1;
+}
+
+.barca-stripe.blue {
+  background: var(--barca-blue);
+}
+
+.barca-stripe.red {
+  background: var(--barca-red);
+}
+
+/* Añadir degradado al fondo para mejorar visual */
+.barca-login-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(0,77,152,0.6) 0%, rgba(165,0,68,0.9) 100%);
+  z-index: -1;
+}
+
+.barca-logo-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.barca-logo-circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border: 3px solid var(--barca-gold);
+  position: relative;
+  overflow: hidden;
+}
+
+.barca-logo-circle::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%);
+}
+
+.barca-logo-text {
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  background: linear-gradient(45deg, var(--barca-blue), var(--barca-red));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  letter-spacing: -1px;
+}
+
+.barca-login-body {
+  padding: 35px 30px 25px;
+}
+
+.barca-login-title {
+  color: var(--barca-blue);
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: 2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+}
+
+.barca-login-subtitle {
+  color: var(--barca-dark-grey);
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.barca-alert {
+  background: rgba(165, 0, 68, 0.1);
+  color: var(--barca-red);
+  padding: 15px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+  font-size: 0.9rem;
+  border-left: 4px solid var(--barca-red);
+}
+
+.barca-alert i {
+  margin-right: 12px;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.barca-alert button {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: var(--barca-red);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+.barca-alert button:hover {
+  background: rgba(165, 0, 68, 0.1);
+}
+
+.barca-input-group {
+  margin-bottom: 25px;
+}
+
+.barca-input-group label {
+  display: flex;
+  align-items: center;
+  color: var(--barca-dark-blue);
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.barca-input-group label i {
+  margin-right: 10px;
+  color: var(--barca-red);
+  font-size: 1.1rem;
+}
+
+.barca-input-field {
+  position: relative;
+}
+
+.barca-input-field input {
+  width: 100%;
+  padding: 14px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s;
+  background: var(--barca-grey);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.barca-input-field input:focus {
+  outline: none;
+  border-color: var(--barca-blue);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(0, 77, 152, 0.1);
+}
+
+.barca-input-underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--barca-red);
+  transition: all 0.3s;
+}
+
+.barca-input-field input:focus ~ .barca-input-underline {
+  width: 100%;
+}
+
+.barca-login-button {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(45deg, var(--barca-blue), var(--barca-dark-blue));
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  margin-top: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 77, 152, 0.3);
+}
+
+.barca-login-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: all 0.6s;
+}
+
+.barca-login-button:hover {
+  background: linear-gradient(45deg, var(--barca-dark-blue), var(--barca-blue));
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 77, 152, 0.4);
+}
+
+.barca-login-button:hover::after {
+  left: 100%;
+}
+
+.barca-login-button:active {
+  transform: translateY(0);
+}
+
+.barca-login-button i {
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+.barca-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 10px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.barca-forgot-password {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.barca-forgot-password a {
+  color: var(--barca-dark-grey);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.barca-forgot-password a:hover {
+  color: var(--barca-red);
+  text-decoration: underline;
+}
+
+.barca-login-footer {
+  text-align: center;
+  margin-top: 30px;
+  color: var(--barca-dark-grey);
+  font-size: 0.9rem;
+  padding-top: 20px;
+  border-top: 1px solid var(--barca-grey);
+}
+
+.barca-login-footer p {
+  margin-bottom: 10px;
+}
+
+.barca-register-link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--barca-blue);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background-color: transparent;
+  border: 1px solid var(--barca-blue);
+}
+
+.barca-register-link:hover {
+  color: white;
+  background-color: var(--barca-blue);
+}
+
+.barca-register-link i {
+  margin-right: 8px;
+}
+
+.barca-login-footer-banner {
+  position: relative;
+  height: 10px;
+  background: var(--barca-gold);
+  overflow: hidden;
+}
+
+.barca-footer-stripe {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--barca-red);
+}
+
+/* Estilos para navbar en la parte superior */
+.barca-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--barca-blue);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.barca-navbar-title {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.barca-navbar-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.barca-navbar-button {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.barca-navbar-button:hover {
+  background-color: white;
+  color: var(--barca-blue);
+}
+
+/* Estilos responsivos */
+@media (max-width: 576px) {
+  .barca-login-card {
+    margin: 10px;
+    max-width: 92%;
+  }
+  
+  .barca-login-body {
+    padding: 25px 20px 20px;
+  }
+  
+  .barca-login-header {
+    height: 120px;
+  }
+  
+  .barca-logo-circle {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .barca-logo-text {
+    font-size: 1.6rem;
+  }
+  
+  .barca-navbar-title {
+    font-size: 1rem;
+  }
+  
+  .barca-navbar-button {
+    padding: 4px 12px;
+    font-size: 0.8rem;
+  }
+}
