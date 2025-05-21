@@ -4,47 +4,48 @@ import './ModeratorDashboard.css';
 
 const ModeratorDashboard = () => (
   <div className="moderator-dashboard">
-    {/* Header con estilo de gradiente */}
+    {/* Header con estilo farmacéutico */}
     <div className="dashboard-header">
       <div className="header-content">
-        <div className="shield-icon">
+        <div className="pharmacy-icon">
           <svg viewBox="0 0 24 24" width="48" height="48">
-            <path fill="currentColor" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11V11.99z"/>
+            <path fill="currentColor" d="M20 6h-4V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM10 4h4v2h-4V4zm10 16H4V8h16v12z"/>
+            <path fill="currentColor" d="M13 10h-2v3H8v2h3v3h2v-3h3v-2h-3z"/>
           </svg>
         </div>
         <div className="header-text">
-          <h1>Centro de Control del Moderador</h1>
-          <p className="subtitle">Manteniendo la excelencia de nuestra comunidad</p>
+          <h1>Panel de Control de Farmacia</h1>
+          <p className="subtitle">Supervisión y gestión de medicamentos</p>
         </div>
       </div>
     </div>
 
-    {/* Tarjetas principales con diseño moderno */}
+    {/* Tarjetas principales con diseño farmacéutico */}
     <div className="dashboard-grid">
       {/* Tarjeta de Rol */}
       <div className="dashboard-card role-card">
         <div className="card-header">
           <div className="card-icon">
-            <i className="bi bi-shield-shaded"></i>
+            <i className="bi bi-shield-check"></i>
           </div>
-          <h3>Tu Rol en el Equipo</h3>
+          <h3>Tu Rol en la Farmacia</h3>
         </div>
         <div className="card-body">
           <p className="card-description">
-            Eres el <strong>centrocampista</strong> de nuestra comunidad, conectando a los usuarios con los administradores y manteniendo el ritmo del juego limpio.
+            Eres el <strong>supervisor</strong> de nuestra farmacia, garantizando la calidad del servicio y supervisando el inventario.
           </p>
           <div className="responsibilities">
             <div className="responsibility-item">
               <span className="check-icon"><i className="bi bi-check-circle"></i></span>
-              <span>Supervisión de contenido en tiempo real</span>
+              <span>Control de medicamentos</span>
             </div>
             <div className="responsibility-item">
               <span className="check-icon"><i className="bi bi-check-circle"></i></span>
-              <span>Primera respuesta a incidencias</span>
+              <span>Atención a consultas</span>
             </div>
             <div className="responsibility-item">
               <span className="check-icon"><i className="bi bi-check-circle"></i></span>
-              <span>Mediación en conflictos</span>
+              <span>Gestión de pedidos</span>
             </div>
           </div>
         </div>
@@ -54,34 +55,34 @@ const ModeratorDashboard = () => (
       <div className="dashboard-card users-card">
         <div className="card-header">
           <div className="card-icon">
-            <i className="bi bi-people-fill"></i>
+            <i className="bi bi-people"></i>
           </div>
-          <h3>Gestión de Jugadores</h3>
+          <h3>Gestión de Pacientes</h3>
         </div>
         <div className="card-body">
           <div className="stats-container">
             <div className="stat-item">
               <div className="stat-value">24</div>
-              <div className="stat-label">Reportes hoy</div>
+              <div className="stat-label">Consultas hoy</div>
             </div>
             <div className="stat-item">
               <div className="stat-value">5</div>
-              <div className="stat-label">Verificaciones</div>
+              <div className="stat-label">Recetas</div>
             </div>
             <div className="stat-item">
               <div className="stat-value">3</div>
-              <div className="stat-label">Advertencias</div>
+              <div className="stat-label">Entregas</div>
             </div>
           </div>
           <div className="user-actions">
             <button className="action-btn">
-              <i className="bi bi-person-plus"></i> Verificar
+              <i className="bi bi-clipboard-plus"></i> Receta
             </button>
             <button className="action-btn">
-              <i className="bi bi-chat-dots"></i> Advertir
+              <i className="bi bi-chat-dots"></i> Consulta
             </button>
             <button className="action-btn">
-              <i className="bi bi-flag"></i> Reportar
+              <i className="bi bi-box-seam"></i> Entrega
             </button>
           </div>
         </div>
@@ -93,21 +94,21 @@ const ModeratorDashboard = () => (
           <div className="card-icon">
             <i className="bi bi-tools"></i>
           </div>
-          <h3>Caja de Herramientas</h3>
+          <h3>Herramientas</h3>
         </div>
         <div className="card-body">
           <div className="tools-grid">
             <div className="tool-item">
-              <i className="bi bi-list-check"></i>
-              <span>Reportes</span>
+              <i className="bi bi-journal-medical"></i>
+              <span>Recetas</span>
             </div>
             <div className="tool-item">
-              <i className="bi bi-chat-square-text"></i>
-              <span>Comentarios</span>
+              <i className="bi bi-capsule"></i>
+              <span>Medicamentos</span>
             </div>
             <div className="tool-item">
-              <i className="bi bi-file-earmark-text"></i>
-              <span>Contenido</span>
+              <i className="bi bi-shop"></i>
+              <span>Inventario</span>
             </div>
             <div className="tool-item">
               <i className="bi bi-graph-up"></i>
@@ -131,18 +132,18 @@ const ModeratorDashboard = () => (
           <div className="card-icon">
             <i className="bi bi-activity"></i>
           </div>
-          <h3>Partido en Directo</h3>
-          <span className="badge">3 acciones requeridas</span>
+          <h3>Actividad Reciente</h3>
+          <span className="badge">3 pendientes</span>
         </div>
         <div className="card-body">
           <div className="activity-list">
             <div className="activity-item urgent">
               <div className="activity-icon">
-                <i className="bi bi-exclamation-triangle"></i>
+                <i className="bi bi-exclamation-circle"></i>
               </div>
               <div className="activity-content">
-                <div className="activity-title">Comentario inapropiado</div>
-                <div className="activity-meta">Usuario23 · Hace 15 min</div>
+                <div className="activity-title">Medicamento agotado</div>
+                <div className="activity-meta">Ibuprofeno 600mg · Hace 15 min</div>
               </div>
               <button className="activity-action">
                 <i className="bi bi-arrow-right"></i>
@@ -151,11 +152,11 @@ const ModeratorDashboard = () => (
             
             <div className="activity-item warning">
               <div className="activity-icon">
-                <i className="bi bi-files"></i>
+                <i className="bi bi-clock"></i>
               </div>
               <div className="activity-content">
-                <div className="activity-title">Contenido duplicado</div>
-                <div className="activity-meta">Usuario45 · Hace 32 min</div>
+                <div className="activity-title">Próxima a vencer</div>
+                <div className="activity-meta">Amoxicilina · 30 días</div>
               </div>
               <button className="activity-action">
                 <i className="bi bi-arrow-right"></i>
@@ -164,11 +165,11 @@ const ModeratorDashboard = () => (
             
             <div className="activity-item info">
               <div className="activity-icon">
-                <i className="bi bi-person-check"></i>
+                <i className="bi bi-envelope"></i>
               </div>
               <div className="activity-content">
-                <div className="activity-title">Solicitud de verificación</div>
-                <div className="activity-meta">Usuario12 · Hace 1 hora</div>
+                <div className="activity-title">Nueva consulta</div>
+                <div className="activity-meta">María López · Hace 1 hora</div>
               </div>
               <button className="activity-action">
                 <i className="bi bi-arrow-right"></i>

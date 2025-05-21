@@ -1,38 +1,33 @@
-/* FC Barcelona Theme */
+/* Pharmacy Theme */
 :root {
-  --barca-blue: #004d98;
-  --barca-dark-blue: #003366;
-  --barca-red: #a50044;
-  --barca-dark-red: #7a0033;
-  --barca-gold: #edbb00;
-  --barca-yellow: #ffed02;
-  --barca-light: #f5f5f5;
-  --barca-grey: #ebebeb;
-  --barca-dark-grey: #444444;
+  --pharmacy-primary: #4f9cb3;
+  --pharmacy-secondary: #2d7188;
+  --pharmacy-accent: #8cc152;
+  --pharmacy-light: #f8fcff;
+  --pharmacy-grey: #f0f4f8;
+  --pharmacy-dark-grey: #5a6474;
+  --pharmacy-text: #2c3e50;
 }
 
-/* Reset de estilos globales para pantalla completa */
+/* Base reset */
 html, body, #root, #app {
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
-  overflow: hidden; /* Previene scrollbars */
   box-sizing: border-box;
+  font-family: 'Roboto', 'Segoe UI', sans-serif;
 }
 
-.barca-login-container {
+.pharmacy-login-container {
   height: 100vh;
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(rgba(0, 77, 152, 0.8), rgba(165, 0, 68, 0.8)),
-    url('https://images.unsplash.com/photo-1589487391730-58f20eb2c308?q=80&w=3000') no-repeat center center;
+  background: linear-gradient(rgba(79, 156, 179, 0.8), rgba(45, 113, 136, 0.9)),
+    url('https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=2940') no-repeat center center;
   background-size: cover;
-  font-family: 'Montserrat', sans-serif;
-  padding: 0;
-  margin: 0;
   position: absolute;
   top: 0;
   left: 0;
@@ -40,430 +35,246 @@ html, body, #root, #app {
   bottom: 0;
 }
 
-.barca-login-card {
+.pharmacy-login-card {
   width: 100%;
   max-width: 400px;
   background: white;
-  border-radius: 12px;
+  border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  margin: 0 auto;
+}
+
+.pharmacy-login-header {
   position: relative;
-  z-index: 1;
-  transform: translateY(0);
-  transition: transform 0.3s ease;
-  margin: 0 auto; /* Centra la tarjeta */
-}
-
-.barca-login-card:hover {
-  transform: translateY(-5px);
-}
-
-.barca-login-header {
-  position: relative;
-  height: 140px;
-  background: var(--barca-blue);
-  overflow: hidden;
-}
-
-.barca-stripes {
+  height: 110px;
+  background: linear-gradient(to right, var(--pharmacy-primary), var(--pharmacy-secondary));
   display: flex;
-  height: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
-.barca-stripe {
-  flex: 1;
-}
-
-.barca-stripe.blue {
-  background: var(--barca-blue);
-}
-
-.barca-stripe.red {
-  background: var(--barca-red);
-}
-
-/* Añadir degradado al fondo para mejorar visual */
-.barca-login-container::before {
-  content: '';
+.pharmacy-logo-container {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(circle at center, rgba(0,77,152,0.6) 0%, rgba(165,0,68,0.9) 100%);
-  z-index: -1;
-}
-
-.barca-logo-container {
-  position: absolute;
-  top: 50%;
+  bottom: -30px;
   left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
+  transform: translateX(-50%);
 }
 
-.barca-logo-circle {
-  width: 90px;
-  height: 90px;
+.pharmacy-logo-circle {
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   background: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  border: 3px solid var(--barca-gold);
-  position: relative;
-  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 3px solid var(--pharmacy-accent);
 }
 
-.barca-logo-circle::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%);
+.pharmacy-logo-icon {
+  color: var(--pharmacy-primary);
+  font-size: 2.5rem;
 }
 
-.barca-logo-text {
-  font-family: 'Arial Black', 'Helvetica', sans-serif;
-  font-size: 1.8rem;
-  font-weight: 900;
-  background: linear-gradient(45deg, var(--barca-blue), var(--barca-red));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  letter-spacing: -1px;
+.pharmacy-login-body {
+  padding: 40px 30px 25px;
+  margin-top: 10px;
 }
 
-.barca-login-body {
-  padding: 35px 30px 25px;
-}
-
-.barca-login-title {
-  color: var(--barca-blue);
+.pharmacy-login-title {
+  color: var(--pharmacy-primary);
   text-align: center;
   margin-bottom: 5px;
-  font-size: 2rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: -0.5px;
+  font-size: 1.8rem;
 }
 
-.barca-login-subtitle {
-  color: var(--barca-dark-grey);
+.pharmacy-login-subtitle {
+  color: var(--pharmacy-dark-grey);
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   font-size: 0.9rem;
-  font-style: italic;
 }
 
-.barca-alert {
-  background: rgba(165, 0, 68, 0.1);
-  color: var(--barca-red);
-  padding: 15px;
-  border-radius: 8px;
+.pharmacy-alert {
+  background: rgba(220, 53, 69, 0.1);
+  color: #dc3545;
+  padding: 12px;
+  border-radius: 6px;
   display: flex;
   align-items: center;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   font-size: 0.9rem;
-  border-left: 4px solid var(--barca-red);
+  border-left: 3px solid #dc3545;
 }
 
-.barca-alert i {
-  margin-right: 12px;
-  font-size: 1.2rem;
-  flex-shrink: 0;
+.pharmacy-alert i {
+  margin-right: 10px;
 }
 
-.barca-alert button {
+.pharmacy-alert button {
   margin-left: auto;
   background: none;
   border: none;
-  color: var(--barca-red);
-  font-size: 1.2rem;
+  color: #dc3545;
   cursor: pointer;
-  padding: 0;
+}
+
+.pharmacy-input-group {
+  margin-bottom: 20px;
+}
+
+.pharmacy-input-group label {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  transition: background 0.2s;
-}
-
-.barca-alert button:hover {
-  background: rgba(165, 0, 68, 0.1);
-}
-
-.barca-input-group {
-  margin-bottom: 25px;
-}
-
-.barca-input-group label {
-  display: flex;
-  align-items: center;
-  color: var(--barca-dark-blue);
-  font-weight: 600;
-  margin-bottom: 10px;
+  color: var(--pharmacy-text);
+  font-weight: 500;
+  margin-bottom: 8px;
   font-size: 0.95rem;
 }
 
-.barca-input-group label i {
-  margin-right: 10px;
-  color: var(--barca-red);
-  font-size: 1.1rem;
+.pharmacy-input-group label i {
+  margin-right: 8px;
+  color: var(--pharmacy-primary);
 }
 
-.barca-input-field {
-  position: relative;
-}
-
-.barca-input-field input {
+.pharmacy-input-field input {
   width: 100%;
-  padding: 14px 15px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  padding: 12px;
+  border: 1px solid var(--pharmacy-grey);
+  border-radius: 6px;
   font-size: 1rem;
   transition: all 0.3s;
-  background: var(--barca-grey);
-  font-family: 'Montserrat', sans-serif;
+  background: var(--pharmacy-light);
 }
 
-.barca-input-field input:focus {
+.pharmacy-input-field input:focus {
   outline: none;
-  border-color: var(--barca-blue);
-  background: white;
-  box-shadow: 0 0 0 3px rgba(0, 77, 152, 0.1);
+  border-color: var(--pharmacy-primary);
+  box-shadow: 0 0 0 3px rgba(79, 156, 179, 0.1);
 }
 
-.barca-input-underline {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--barca-red);
-  transition: all 0.3s;
-}
-
-.barca-input-field input:focus ~ .barca-input-underline {
+.pharmacy-login-button {
   width: 100%;
-}
-
-.barca-login-button {
-  width: 100%;
-  padding: 15px;
-  background: linear-gradient(45deg, var(--barca-blue), var(--barca-dark-blue));
+  padding: 12px;
+  background: var(--pharmacy-primary);
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   transition: all 0.3s;
-  margin-top: 15px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 77, 152, 0.3);
+  margin-top: 10px;
 }
 
-.barca-login-button::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  transition: all 0.6s;
+.pharmacy-login-button:hover {
+  background: var(--pharmacy-secondary);
 }
 
-.barca-login-button:hover {
-  background: linear-gradient(45deg, var(--barca-dark-blue), var(--barca-blue));
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 77, 152, 0.4);
-}
-
-.barca-login-button:hover::after {
-  left: 100%;
-}
-
-.barca-login-button:active {
-  transform: translateY(0);
-}
-
-.barca-login-button i {
-  margin-right: 10px;
-  font-size: 1.2rem;
-}
-
-.barca-spinner {
+.pharmacy-spinner {
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   border: 3px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
   border-top-color: white;
   animation: spin 1s ease-in-out infinite;
-  margin-right: 10px;
+  margin-right: 8px;
 }
 
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
 
-.barca-forgot-password {
+.pharmacy-forgot-password {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.pharmacy-forgot-password a {
+  color: var(--pharmacy-dark-grey);
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.pharmacy-forgot-password a:hover {
+  color: var(--pharmacy-primary);
+}
+
+.pharmacy-login-footer {
   text-align: center;
   margin-top: 20px;
-}
-
-.barca-forgot-password a {
-  color: var(--barca-dark-grey);
+  color: var(--pharmacy-dark-grey);
   font-size: 0.9rem;
-  text-decoration: none;
-  transition: all 0.3s;
+  padding-top: 15px;
+  border-top: 1px solid var(--pharmacy-grey);
 }
 
-.barca-forgot-password a:hover {
-  color: var(--barca-red);
-  text-decoration: underline;
-}
-
-.barca-login-footer {
-  text-align: center;
-  margin-top: 30px;
-  color: var(--barca-dark-grey);
-  font-size: 0.9rem;
-  padding-top: 20px;
-  border-top: 1px solid var(--barca-grey);
-}
-
-.barca-login-footer p {
-  margin-bottom: 10px;
-}
-
-.barca-register-link {
+.pharmacy-register-link {
   display: inline-flex;
   align-items: center;
-  color: var(--barca-blue);
-  font-weight: 600;
+  color: var(--pharmacy-primary);
+  font-weight: 500;
   text-decoration: none;
-  transition: all 0.3s;
-  padding: 8px 16px;
+  padding: 6px 14px;
   border-radius: 20px;
-  background-color: transparent;
-  border: 1px solid var(--barca-blue);
+  border: 1px solid var(--pharmacy-primary);
+  margin-top: 10px;
 }
 
-.barca-register-link:hover {
+.pharmacy-register-link:hover {
   color: white;
-  background-color: var(--barca-blue);
+  background-color: var(--pharmacy-primary);
 }
 
-.barca-register-link i {
-  margin-right: 8px;
+.pharmacy-register-link i {
+  margin-right: 6px;
 }
 
-.barca-login-footer-banner {
-  position: relative;
-  height: 10px;
-  background: var(--barca-gold);
-  overflow: hidden;
-}
-
-.barca-footer-stripe {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--barca-red);
-}
-
-/* Estilos para navbar en la parte superior */
-.barca-navbar {
+.pharmacy-navbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  background-color: var(--barca-blue);
+  background-color: var(--pharmacy-primary);
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
   z-index: 100;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.barca-navbar-title {
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 1.2rem;
-  letter-spacing: 1px;
+.pharmacy-navbar-title {
+  font-weight: 600;
+  font-size: 1.1rem;
 }
 
-.barca-navbar-actions {
-  display: flex;
-  gap: 10px;
-}
-
-.barca-navbar-button {
+.pharmacy-navbar-button {
   background-color: transparent;
   border: 1px solid white;
   color: white;
   padding: 5px 15px;
   border-radius: 20px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s;
   font-size: 0.9rem;
-  font-weight: 500;
   text-decoration: none;
+  margin-left: 10px;
 }
 
-.barca-navbar-button:hover {
+.pharmacy-navbar-button:hover {
   background-color: white;
-  color: var(--barca-blue);
+  color: var(--pharmacy-primary);
 }
 
-/* Estilos responsivos */
+/* Responsive adjustments */
 @media (max-width: 576px) {
-  .barca-login-card {
+  .pharmacy-login-card {
     margin: 10px;
     max-width: 92%;
-  }
-  
-  .barca-login-body {
-    padding: 25px 20px 20px;
-  }
-  
-  .barca-login-header {
-    height: 120px;
-  }
-  
-  .barca-logo-circle {
-    width: 80px;
-    height: 80px;
-  }
-  
-  .barca-logo-text {
-    font-size: 1.6rem;
-  }
-  
-  .barca-navbar-title {
-    font-size: 1rem;
-  }
-  
-  .barca-navbar-button {
-    padding: 4px 12px;
-    font-size: 0.8rem;
   }
 }

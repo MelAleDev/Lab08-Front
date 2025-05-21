@@ -28,7 +28,7 @@ const Dashboard = () => {
         <div className="spinner-border" role="status">
           <span className="visually-hidden">Cargando...</span>
         </div>
-        <h4 className="mt-4">Preparando tu experiencia culé...</h4>
+        <h4 className="mt-4">Preparando su portal farmacéutico...</h4>
       </div>
     );
   }
@@ -45,10 +45,10 @@ const Dashboard = () => {
                 <div className="badge bg-white text-primary px-3 py-2 rounded-pill">
                   <i className="bi bi-shield-lock me-2"></i>
                   {role === 'admin' ? 'Administrador' : 
-                   role === 'moderador' ? 'Moderador' : 'Usuario'}
+                   role === 'moderador' ? 'Farmacéutico' : 'Usuario'}
                 </div>
               </div>
-              <div className="avatar-lg rounded-circle d-flex align-items-center justify-content-center">
+              <div className="avatar-lg rounded-circle d-flex align-items-center justify-content-center text-white">
                 {username.charAt(0).toUpperCase()}
               </div>
             </div>
@@ -61,23 +61,23 @@ const Dashboard = () => {
         <div className="col-lg-6">
           <div className="card h-100">
             <div className="card-header">
-              <h5 className="mb-0 d-flex align-items-center">
-                <i className="bi bi-lightning-charge-fill me-2" style={{background: 'var(--barca-gradient)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}></i>
+              <h5 className="mb-0">
+                <i className="bi bi-clipboard-pulse me-2"></i>
                 Acciones Rápidas
               </h5>
             </div>
             <div className="card-body">
               <div className="row g-3">
                 {[
-                  {icon: 'bi-calendar-check', title: 'Mis Eventos', color: 'primary'},
-                  {icon: 'bi-file-earmark-text', title: 'Documentos', color: 'success'},
-                  {icon: 'bi-people', title: 'Contactos', color: 'warning'},
-                  {icon: 'bi-gear', title: 'Configuración', color: 'info'}
+                  {icon: 'bi-capsule', title: 'Medicamentos', color: 'primary'},
+                  {icon: 'bi-calendar-check', title: 'Recetas', color: 'success'},
+                  {icon: 'bi-people', title: 'Pacientes', color: 'info'},
+                  {icon: 'bi-box-seam', title: 'Inventario', color: 'warning'}
                 ].map((action, index) => (
                   <div className="col-md-6" key={index}>
                     <button className="btn btn-action-card w-100">
-                      <i className={`bi ${action.icon} fs-1`}></i>
-                      <h6 className={`text-${action.color} fw-bold mt-2`}>{action.title}</h6>
+                      <i className={`bi ${action.icon}`}></i>
+                      <h6 className="fw-bold mt-2">{action.title}</h6>
                     </button>
                   </div>
                 ))}
@@ -90,8 +90,8 @@ const Dashboard = () => {
         <div className="col-lg-6">
           <div className="card h-100">
             <div className="card-header">
-              <h5 className="mb-0 d-flex align-items-center">
-                <i className="bi bi-clock-history me-2" style={{background: 'var(--barca-gradient)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}></i>
+              <h5 className="mb-0">
+                <i className="bi bi-clock-history me-2"></i>
                 Actividad Reciente
               </h5>
             </div>
@@ -99,15 +99,15 @@ const Dashboard = () => {
               <div className="activity-timeline">
                 {[
                   {time: 'Hace 15 minutos', text: 'Has iniciado sesión correctamente', color: 'success'},
-                  {time: 'Ayer, 14:32', text: 'Actualizaste tu información de perfil', color: 'primary'},
-                  {time: 'Lunes, 09:15', text: 'Subiste un nuevo documento', color: 'warning'},
-                  {time: '28 Feb, 2024', text: 'Registro completado', color: 'info'}
+                  {time: 'Ayer, 14:32', text: 'Ingreso de medicamentos al inventario', color: 'primary'},
+                  {time: 'Lunes, 09:15', text: 'Nueva receta registrada', color: 'warning'},
+                  {time: '28 Feb, 2024', text: 'Actualización del catálogo', color: 'info'}
                 ].map((activity, index) => (
                   <div className="activity-item" key={index}>
                     <div className={`activity-badge bg-${activity.color}`}></div>
                     <div className="activity-content">
                       <small className="text-muted">{activity.time}</small>
-                      <p className="mb-0 fw-medium">{activity.text}</p>
+                      <p className="mb-0">{activity.text}</p>
                     </div>
                   </div>
                 ))}
@@ -123,18 +123,18 @@ const Dashboard = () => {
         <div className="col-12">
           <div className="stats-card">
             <div className="card-header">
-              <h5 className="mb-0 d-flex align-items-center">
+              <h5 className="mb-0">
                 <i className="bi bi-bar-chart-line me-2"></i>
-                Tus Estadísticas
+                Estadísticas
               </h5>
             </div>
             <div className="card-body">
               <div className="row">
                 {[
-                  {value: 12, label: 'Eventos', color: 'primary'},
-                  {value: 5, label: 'Tareas completadas', color: 'success'},
-                  {value: 3, label: 'Mensajes nuevos', color: 'warning'},
-                  {value: 8, label: 'Documentos', color: 'info'}
+                  {value: 32, label: 'Medicamentos', color: 'primary'},
+                  {value: 15, label: 'Recetas hoy', color: 'success'},
+                  {value: 8, label: 'Notificaciones', color: 'warning'},
+                  {value: 125, label: 'Pacientes', color: 'info'}
                 ].map((stat, index) => (
                   <div className="col-md-3 col-6" key={index}>
                     <div className="stat-item">

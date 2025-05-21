@@ -1,47 +1,30 @@
-// src/pages/RegisterPage.jsx
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { useNavigate, Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useNavigate, Link } from 'react-router-dom';
 import './RegisterPage.css';
 
 const RegisterPage = () => {
   const [formData, setFormData] = useState({
-    username: "",
-    password: "",
-    confirmPassword: "",
-    role: "user"
+    username: '',
+    password: '',
+    confirmPassword: '',
+    role: 'user'
   });
   const [errors, setErrors] = useState({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [serverError, setServerError] = useState("");
-  const [formVisible, setFormVisible] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [serverError, setServerError] = useState('');
   const navigate = useNavigate();
-
-  // Efecto para animar la aparición del formulario
+  
+  // Ensure full-screen display
   useEffect(() => {
-    // Pequeño retraso para mejorar la experiencia visual
-    const timer = setTimeout(() => {
-      setFormVisible(true);
-    }, 200);
+    document.body.style.margin = '0';
+    document.body.style.padding = '0';
     
-    return () => clearTimeout(timer);
+    return () => {
+      document.body.style.margin = '';
+      document.body.style.padding = '';
+    };
   }, []);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-    
-    // Limpia el error específico al empezar a escribir
-    if (errors[name]) {
-      setErrors({
-        ...errors,
-        [name]: ""
-      });
-    }
-  };
 
   const validateForm = () => {
     const newErrors = {};
@@ -68,14 +51,29 @@ const RegisterPage = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+    
+    if (errors[name]) {
+      setErrors({
+        ...errors,
+        [name]: ""
+      });
+    }
+  };
+
+  const handleRegister = async (e) => {
     e.preventDefault();
     
     if (!validateForm()) return;
     
-    setIsSubmitting(true);
-    setServerError("");
-
+    setLoading(true);
+    setServerError('');
+    
     try {
       const response = await axios.post(
         `${process.env.REACT_APP_BACK_URL}/api/auth/register`,
@@ -87,156 +85,159 @@ const RegisterPage = () => {
       );
       
       if (response.data.success) {
-        // Mostrar animación de éxito antes de navegar
-        setTimeout(() => {
-          navigate("/login", { state: { registrationSuccess: true } });
-        }, 800);
+        navigate('/login', { state: { registrationSuccess: true } });
       }
     } catch (err) {
-      console.error("Registration error:", err);
       setServerError(
         err.response?.data?.message || 
         "Hubo un error al registrar el usuario. Por favor intenta nuevamente."
       );
     } finally {
-      setIsSubmitting(false);
+      setLoading(false);
     }
   };
 
-  // Función para cerrar el mensaje de error del servidor
-  const closeServerError = () => {
-    setServerError("");
-  };
-
   return (
-    <div className="register-container">
-      <div 
-        className="register-card"
-        style={{ 
-          opacity: formVisible ? 1 : 0, 
-          transform: formVisible ? 'translateY(0)' : 'translateY(20px)',
-          transition: 'opacity 0.5s ease, transform 0.5s ease'
-        }}
-      >
-        <div className="club-badge">
-          <div className="badge-inner">
-            <span className="badge-text">FCB</span>
+    <div className="pharmacy-login-container">
+      <div className="pharmacy-navbar">
+        <div className="pharmacy-navbar-title">Sistema de Gestión Farmacéutico</div>
+        <div>
+          <Link to="/login" className="pharmacy-navbar-button">Iniciar Sesión</Link>
+          <Link to="/register" className="pharmacy-navbar-button">Registrarse</Link>
+        </div>
+      </div>
+      
+      <div className="pharmacy-login-card pharmacy-register-card">
+        <div className="pharmacy-login-header">
+          <div className="pharmacy-logo-container">
+            <div className="pharmacy-logo-circle">
+              <i className="bi bi-capsule pharmacy-logo-icon"></i>
+            </div>
           </div>
         </div>
-        
-        <div className="register-header">
-          <h2>Únete al Club</h2>
-          <p>Regístrate para ser parte de nuestra comunidad culé</p>
-        </div>
 
-        {serverError && (
-          <div className="error-message">
-            <i className="bi bi-exclamation-triangle-fill"></i>
-            <span>{serverError}</span>
-            <button onClick={closeServerError} aria-label="Cerrar error">
-              <i className="bi bi-x"></i>
-            </button>
-          </div>
-        )}
+        <div className="pharmacy-login-body">
+          <h2 className="pharmacy-login-title">Crear Cuenta</h2>
+          <p className="pharmacy-login-subtitle">Regístrate para acceder a nuestra farmacia online</p>
 
-        <form onSubmit={handleSubmit} noValidate>
-          <div className="input-group">
-            <i className="bi bi-person-fill input-icon"></i>
-            <input
-              type="text"
-              className={errors.username ? "error" : ""}
-              id="username"
-              name="username"
-              value={formData.username}
-              onChange={handleChange}
-              placeholder=" "
-              required
-            />
-            <label htmlFor="username">Usuario</label>
-            {errors.username && (
-              <div className="input-error">{errors.username}</div>
-            )}
-          </div>
+          {serverError && (
+            <div className="pharmacy-alert">
+              <i className="bi bi-exclamation-triangle-fill"></i>
+              <span>{serverError}</span>
+              <button onClick={() => setServerError('')}>&times;</button>
+            </div>
+          )}
 
-          <div className="input-group">
-            <i className="bi bi-lock-fill input-icon"></i>
-            <input
-              type="password"
-              className={errors.password ? "error" : ""}
-              id="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              placeholder=" "
-              required
-            />
-            <label htmlFor="password">Contraseña</label>
-            {errors.password && (
-              <div className="input-error">{errors.password}</div>
-            )}
-            <div className="input-hint">Mínimo 6 caracteres</div>
-          </div>
+          <form onSubmit={handleRegister}>
+            <div className="pharmacy-input-group">
+              <label htmlFor="username">
+                <i className="bi bi-person-fill"></i>
+                Usuario
+              </label>
+              <div className="pharmacy-input-field">
+                <input
+                  id="username"
+                  name="username"
+                  type="text"
+                  value={formData.username}
+                  onChange={handleChange}
+                  placeholder="Ingrese su nombre de usuario"
+                  required
+                  className={errors.username ? "error" : ""}
+                />
+                {errors.username && <div className="pharmacy-input-error">{errors.username}</div>}
+              </div>
+            </div>
 
-          <div className="input-group">
-            <i className="bi bi-shield-lock-fill input-icon"></i>
-            <input
-              type="password"
-              className={errors.confirmPassword ? "error" : ""}
-              id="confirmPassword"
-              name="confirmPassword"
-              value={formData.confirmPassword}
-              onChange={handleChange}
-              placeholder=" "
-              required
-            />
-            <label htmlFor="confirmPassword">Confirmar Contraseña</label>
-            {errors.confirmPassword && (
-              <div className="input-error">{errors.confirmPassword}</div>
-            )}
-          </div>
+            <div className="pharmacy-input-group">
+              <label htmlFor="password">
+                <i className="bi bi-lock-fill"></i>
+                Contraseña
+              </label>
+              <div className="pharmacy-input-field">
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  placeholder="Ingrese su contraseña"
+                  required
+                  className={errors.password ? "error" : ""}
+                />
+                {errors.password && <div className="pharmacy-input-error">{errors.password}</div>}
+                <div className="pharmacy-input-hint">Mínimo 6 caracteres</div>
+              </div>
+            </div>
 
-          <div className="input-group">
-            <i className="bi bi-person-badge-fill input-icon"></i>
-            <select
-              id="role"
-              name="role"
-              value={formData.role}
-              onChange={handleChange}
+            <div className="pharmacy-input-group">
+              <label htmlFor="confirmPassword">
+                <i className="bi bi-shield-lock-fill"></i>
+                Confirmar Contraseña
+              </label>
+              <div className="pharmacy-input-field">
+                <input
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  type="password"
+                  value={formData.confirmPassword}
+                  onChange={handleChange}
+                  placeholder="Confirme su contraseña"
+                  required
+                  className={errors.confirmPassword ? "error" : ""}
+                />
+                {errors.confirmPassword && <div className="pharmacy-input-error">{errors.confirmPassword}</div>}
+              </div>
+            </div>
+
+            <div className="pharmacy-input-group">
+              <label htmlFor="role">
+                <i className="bi bi-person-badge-fill"></i>
+                Tipo de Cuenta
+              </label>
+              <div className="pharmacy-input-field">
+                <select
+                  id="role"
+                  name="role"
+                  value={formData.role}
+                  onChange={handleChange}
+                  className="pharmacy-select"
+                >
+                  <option value="user">Cliente</option>
+                  <option value="pharmacist">Farmacéutico</option>
+                  <option value="admin">Administrador</option>
+                </select>
+                <div className="pharmacy-input-hint">* Solo personal autorizado puede crear cuentas especiales</div>
+              </div>
+            </div>
+
+            <button 
+              className="pharmacy-login-button"
+              type="submit"
+              disabled={loading}
             >
-              <option value="user">Usuario Regular</option>
-              <option value="moderator">Moderador</option>
-              <option value="admin">Administrador</option>
-            </select>
-            <label htmlFor="role">Tipo de Cuenta</label>
-            <div className="input-hint">* Solo usuarios autorizados pueden crear cuentas de moderador o administrador</div>
-          </div>
+              {loading ? (
+                <>
+                  <span className="pharmacy-spinner"></span>
+                  Registrando...
+                </>
+              ) : (
+                <>
+                  <i className="bi bi-person-plus-fill"></i>
+                  &nbsp;Crear Cuenta
+                </>
+              )}
+            </button>
 
-          <button 
-            className="submit-btn" 
-            type="submit"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? (
-              <>
-                <span className="spinner"></span>
-                Registrando...
-              </>
-            ) : (
-              <>
-                <i className="bi bi-person-plus-fill"></i>
-                Registrarse
-              </>
-            )}
-          </button>
-
-          <div className="login-link">
-            <span>¿Ya tienes una cuenta?</span>
-            <Link to="/">
-              <i className="bi bi-box-arrow-in-right"></i>
-              Iniciar Sesión
-            </Link>
-          </div>
-        </form>
+            <div className="pharmacy-login-footer">
+              <p>¿Ya tienes una cuenta?</p>
+              <Link to="/login" className="pharmacy-register-link">
+                <i className="bi bi-box-arrow-in-right"></i>
+                Iniciar Sesión
+              </Link>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );

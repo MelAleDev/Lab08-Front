@@ -1,425 +1,80 @@
-/* RegisterPage.css - Estilo FC Barcelona Moderno Mejorado */
+/* Extendiendo los estilos del LoginPage.css para el RegisterPage */
 :root {
-  --barca-dark-blue: #00285e;
-  --barca-blue: #004d98;
-  --barca-red: #a50044;
-  --barca-gold: #edbb00;
-  --barca-light: #f7f7f7;
+  --pharmacy-primary: #4f9cb3;
+  --pharmacy-secondary: #2d7188;
+  --pharmacy-accent: #8cc152;
+  --pharmacy-light: #f8fcff;
+  --pharmacy-grey: #f0f4f8;
+  --pharmacy-dark-grey: #5a6474;
+  --pharmacy-text: #2c3e50;
+  --pharmacy-error: #dc3545;
 }
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
+
+/* Estilos específicos para la página de registro */
+.pharmacy-register-card {
+  max-width: 450px; /* Un poco más ancho que el login para acomodar los campos adicionales */
+}
+
+/* Campo select con el mismo estilo que los inputs */
+.pharmacy-select {
   width: 100%;
-  overflow-x: hidden;
-}
-
-@keyframes gradientBG {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-/* Mejorado el patrón de franjas */
-.register-container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: repeating-linear-gradient(
-    45deg,
-    rgba(255, 255, 255, 0.02),
-    rgba(255, 255, 255, 0.02) 50px,
-    rgba(237, 187, 0, 0.05) 50px,
-    rgba(237, 187, 0, 0.05) 100px
-  );
-  z-index: 0;
-}
-
-.register-card {
-  width: 100%;
-  max-width: 480px;
-  border-radius: 16px;
-  padding: 40px 30px;
-  background-color: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-  transform: translateY(0);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  margin: 20px;
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-/* Añadir un patrón de franjas sutiles */
-.register-container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 50px,
-    rgba(237, 187, 0, 0.05) 50px,
-    rgba(237, 187, 0, 0.05) 100px
-  );
-}
-
-.register-card {
-  width: 100%;
-  max-width: 480px;
-  border-radius: 16px;
-  padding: 40px 30px;
-  background-color: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-  transform: translateY(0);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  margin: 20px;
-}
-
-.register-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-}
-
-.register-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 8px;
-  background: linear-gradient(90deg, var(--barca-blue) 0%, var(--barca-red) 50%, var(--barca-gold) 100%);
-  z-index: 2;
-}
-
-.club-badge {
-  position: absolute;
-  top: -45px;
-  right: -45px;
-  width: 110px;
-  height: 110px;
-  background-color: var(--barca-red);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform: rotate(15deg);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  z-index: 3;
-}
-
-.badge-inner {
-  width: 90px;
-  height: 90px;
-  border: 3px solid var(--barca-gold);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--barca-blue);
-}
-
-.badge-text {
-  color: white;
-  font-weight: bold;
-  font-size: 1.6rem;
-  transform: rotate(-15deg);
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
-
-.register-header {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.register-header h2 {
-  color: var(--barca-dark-blue);
-  font-size: 2.2rem;
-  margin-bottom: 10px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-}
-
-.register-header p {
-  color: #555;
+  padding: 12px;
+  border: 1px solid var(--pharmacy-grey);
+  border-radius: 6px;
   font-size: 1rem;
-}
-
-.error-message {
-  background-color: rgba(165, 0, 68, 0.1);
-  border-left: 4px solid var(--barca-red);
-  padding: 12px 15px;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  border-radius: 4px;
-  animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.error-message i {
-  color: var(--barca-red);
-  margin-right: 10px;
-  font-size: 1.2rem;
-}
-
-.error-message span {
-  flex: 1;
-  color: var(--barca-red);
-  font-size: 0.9rem;
-}
-
-.error-message button {
-  background: none;
-  border: none;
-  color: var(--barca-red);
+  transition: all 0.3s;
+  background: var(--pharmacy-light);
+  appearance: none; /* Elimina el estilo nativo del selector */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%235a6474' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
   cursor: pointer;
-  font-size: 1.1rem;
-  margin-left: 10px;
-  transition: transform 0.2s ease;
 }
 
-.error-message button:hover {
-  transform: scale(1.1);
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-}
-
-.input-group {
-  position: relative;
-}
-
-.input-icon {
-  position: absolute;
-  left: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--barca-blue);
-  font-size: 1.1rem;
-  z-index: 1;
-}
-
-.input-group label {
-  position: absolute;
-  left: 45px;
-  top: 12px;
-  color: var(--barca-blue);
-  font-size: 0.8rem;
-  font-weight: 500;
-  transition: all 0.3s;
-  pointer-events: none;
-  background-color: white;
-  padding: 0 5px;
-  z-index: 1;
-}
-
-.input-group input,
-.input-group select {
-  width: 100%;
-  padding: 18px 20px 18px 45px;
-  border: 2px solid #ddd;
-  border-radius: 10px;
-  font-size: 1rem;
-  transition: all 0.3s;
-  background-color: white;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
-}
-
-.input-group input:focus,
-.input-group select:focus {
-  border-color: var(--barca-blue);
+.pharmacy-select:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(0, 77, 152, 0.15);
+  border-color: var(--pharmacy-primary);
+  box-shadow: 0 0 0 3px rgba(79, 156, 179, 0.1);
 }
 
-.input-group input:focus + label,
-.input-group input:not(:placeholder-shown) + label,
-.input-group select:focus + label,
-.input-group select:not([value=""]) + label {
-  top: -10px;
-  font-size: 0.7rem;
-  color: var(--barca-dark-blue);
-  font-weight: 600;
-  z-index: 2;
-}
-
-.input-group input.error,
-.input-group select.error {
-  border-color: var(--barca-red);
-  box-shadow: 0 0 0 2px rgba(165, 0, 68, 0.1);
-}
-
-.input-error {
-  color: var(--barca-red);
-  font-size: 0.8rem;
-  margin-top: 5px;
-  padding-left: 15px;
-  animation: fadeIn 0.3s ease;
-}
-
-.input-hint {
-  color: #666;
+/* Mensaje de error para campos inválidos */
+.pharmacy-input-error {
+  color: var(--pharmacy-error);
   font-size: 0.75rem;
-  margin-top: 5px;
-  padding-left: 15px;
+  margin-top: 4px;
+  padding-left: 10px;
 }
 
-.submit-btn {
-  background: linear-gradient(90deg, var(--barca-blue) 0%, var(--barca-dark-blue) 100%);
-  color: white;
-  border: none;
-  padding: 16px;
-  border-radius: 10px;
-  font-size: 1.05rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 15px;
-  box-shadow: 0 5px 15px rgba(0, 40, 94, 0.3);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+/* Texto de ayuda para los campos */
+.pharmacy-input-hint {
+  color: var(--pharmacy-dark-grey);
+  font-size: 0.75rem;
+  margin-top: 4px;
+  padding-left: 10px;
+  opacity: 0.8;
 }
 
-.submit-btn:hover {
-  background: linear-gradient(90deg, var(--barca-dark-blue) 0%, var(--barca-blue) 100%);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 77, 152, 0.4);
+/* Estilo para inputs con error */
+.pharmacy-input-field input.error,
+.pharmacy-input-field select.error {
+  border-color: var(--pharmacy-error);
+  background-color: rgba(220, 53, 69, 0.05);
 }
 
-.submit-btn:active {
-  transform: translateY(0);
-  box-shadow: 0 4px 10px rgba(0, 77, 152, 0.3);
+/* Ajustes para inputs con error y sus mensajes */
+.pharmacy-input-field input.error:focus {
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
 }
 
-.submit-btn:disabled {
-  background: #ccc;
-  transform: none;
-  box-shadow: none;
-  cursor: not-allowed;
-}
-
-.spinner {
-  width: 18px;
-  height: 18px;
-  border: 3px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  border-top-color: white;
-  animation: spin 1s ease-in-out infinite;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-.login-link {
-  text-align: center;
-  margin-top: 25px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.login-link span {
-  color: #666;
-  font-size: 0.9rem;
-}
-
-.login-link a {
-  color: var(--barca-blue);
-  text-decoration: none;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  transition: all 0.3s;
-  padding: 8px 0;
-}
-
-.login-link a:hover {
-  color: var(--barca-dark-blue);
-  transform: translateY(-2px);
-}
-
-.login-link a:active {
-  transform: translateY(0);
-}
-
-/* Responsive adjustments */
-@media (max-width: 576px) {
-  .register-card {
-    padding: 30px 20px;
-    margin: 15px;
+/* Para cuando tengamos más campos y necesitemos ajustar el espaciado */
+@media (max-height: 700px) {
+  .pharmacy-input-group {
+    margin-bottom: 15px;
   }
   
-  .club-badge {
-    width: 90px;
-    height: 90px;
-    top: -35px;
-    right: -35px;
-  }
-  
-  .badge-inner {
-    width: 70px;
-    height: 70px;
-  }
-  
-  .badge-text {
-    font-size: 1.3rem;
-  }
-  
-  .register-header h2 {
-    font-size: 1.8rem;
-  }
-}
-
-/* Para pantallas muy grandes, mejorar la experiencia */
-@media (min-width: 1600px) {
-  .register-card {
-    max-width: 550px;
-    padding: 50px 40px;
-  }
-  
-  .register-header h2 {
-    font-size: 2.5rem;
-  }
-  
-  .register-header p {
-    font-size: 1.1rem;
-  }
-  
-  .input-group input,
-  .input-group select {
-    padding: 20px 20px 20px 50px;
-    font-size: 1.1rem;
+  .pharmacy-login-body {
+    padding: 30px 30px 20px;
   }
 }

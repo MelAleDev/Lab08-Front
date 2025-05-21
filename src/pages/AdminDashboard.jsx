@@ -40,7 +40,7 @@ const AdminDashboard = () => {
 
   return (
     <div className="admin-dashboard container-fluid px-4">
-      {/* Nuevo encabezado con estilo Barça */}
+      {/* Nuevo encabezado con estilo Farmacia */}
       <div className="dashboard-header">
         <div className="row align-items-center">
           <div className="col-md-8">
@@ -57,10 +57,10 @@ const AdminDashboard = () => {
                   boxShadow: '0 2px 10px rgba(0,0,0,0.1)'
                 }}>
                   <span style={{
-                    color: '#A50044',
+                    color: '#4A8D73',
                     fontSize: '1.5rem',
                     fontWeight: 'bold'
-                  }}>FCB</span>
+                  }}>FP</span>
                 </div>
               </div>
               <div>
@@ -71,10 +71,10 @@ const AdminDashboard = () => {
           </div>
           <div className="col-md-4 text-md-end mt-3 mt-md-0">
             <button className="btn btn-light me-2">
-              <i className="bi bi-bell-fill text-danger"></i>
+              <i className="bi bi-bell-fill text-pharmacy-dark"></i>
             </button>
             <button className="btn btn-light">
-              <i className="bi bi-person-circle text-primary"></i>
+              <i className="bi bi-person-circle text-pharmacy"></i>
             </button>
           </div>
         </div>
@@ -82,7 +82,7 @@ const AdminDashboard = () => {
 
       {loading ? (
         <div className="text-center py-5 my-5">
-          <div className="spinner-barca" style={{width: '3rem', height: '3rem'}}></div>
+          <div className="spinner-pharmacy" style={{width: '3rem', height: '3rem'}}></div>
           <p className="mt-3 fs-5 text-muted">Cargando datos administrativos...</p>
         </div>
       ) : error ? (
@@ -96,13 +96,13 @@ const AdminDashboard = () => {
           <div className="row g-4 mb-4">
             {[
               { title: "Usuarios Totales", value: data?.totalUsers || sampleData.totalUsers, 
-                change: "+12%", icon: "bi-people-fill", color: "text-primary" },
+                change: "+12%", icon: "bi-people-fill", color: "text-pharmacy" },
               { title: "Activos Hoy", value: data?.activeToday || sampleData.activeToday, 
-                change: "+8%", icon: "bi-activity", color: "text-success" },
+                change: "+8%", icon: "bi-activity", color: "text-pharmacy-secondary" },
               { title: "Nuevos Registros", value: data?.newRegistrations || sampleData.newRegistrations, 
-                change: "+3", icon: "bi-person-plus", color: "text-info" },
+                change: "+3", icon: "bi-person-plus", color: "text-pharmacy-tertiary" },
               { title: "Administradores", value: data?.adminCount || sampleData.adminCount, 
-                change: "Acceso completo", icon: "bi-shield-check", color: "text-warning" }
+                change: "Acceso completo", icon: "bi-shield-check", color: "text-pharmacy-light" }
             ].map((stat, index) => (
               <div className="col-md-6 col-lg-3" key={index}>
                 <div className="stat-card card-hover-effect h-100">
@@ -130,18 +130,18 @@ const AdminDashboard = () => {
               <div className="card card-hover-effect h-100">
                 <div className="card-header bg-white border-0 d-flex justify-content-between align-items-center">
                   <h5 className="mb-0 fw-bold">
-                    <i className="bi bi-list-check me-2 text-danger"></i>
+                    <i className="bi bi-list-check me-2 text-pharmacy-secondary"></i>
                     Actividad Reciente
                   </h5>
                   <div>
-                    <button className="btn btn-barca-outline btn-sm">
+                    <button className="btn btn-pharmacy-outline btn-sm">
                       <i className="bi bi-arrow-clockwise me-1"></i> Actualizar
                     </button>
                   </div>
                 </div>
                 <div className="card-body p-0">
                   <div className="table-responsive">
-                    <table className="table barca-table mb-0">
+                    <table className="table pharmacy-table mb-0">
                       <thead>
                         <tr>
                           <th>Usuario</th>
@@ -163,7 +163,7 @@ const AdminDashboard = () => {
                               </div>
                             </td>
                             <td>
-                              <span className={`badge badge-barca ${
+                              <span className={`badge badge-pharmacy ${
                                 activity.role === 'admin' ? 'badge-admin' : 
                                 activity.role === 'moderador' ? 'badge-moderador' : 'badge-usuario'
                               }`}>
@@ -191,13 +191,13 @@ const AdminDashboard = () => {
               <div className="card card-hover-effect h-100">
                 <div className="card-header bg-white border-0">
                   <h5 className="mb-0 fw-bold">
-                    <i className="bi bi-lightning-charge-fill me-2 text-warning"></i>
+                    <i className="bi bi-lightning-charge-fill me-2 text-pharmacy-tertiary"></i>
                     Acciones Rápidas
                   </h5>
                 </div>
                 <div className="card-body">
                   <div className="d-grid gap-3">
-                    <button className="btn btn-barca text-start py-3 d-flex align-items-center">
+                    <button className="btn btn-pharmacy text-start py-3 d-flex align-items-center">
                       <i className="bi bi-person-plus-fill me-3 fs-5"></i>
                       <div>
                         <div className="fw-bold">Crear Usuario</div>
@@ -205,7 +205,7 @@ const AdminDashboard = () => {
                       </div>
                     </button>
                     
-                    <button className="btn btn-barca-outline text-start py-3 d-flex align-items-center">
+                    <button className="btn btn-pharmacy-outline text-start py-3 d-flex align-items-center">
                       <i className="bi bi-gear-fill me-3 fs-5"></i>
                       <div>
                         <div className="fw-bold">Configuración</div>
@@ -213,7 +213,7 @@ const AdminDashboard = () => {
                       </div>
                     </button>
                     
-                    <button className="btn btn-barca-outline text-start py-3 d-flex align-items-center">
+                    <button className="btn btn-pharmacy-outline text-start py-3 d-flex align-items-center">
                       <i className="bi bi-shield-lock me-3 fs-5"></i>
                       <div>
                         <div className="fw-bold">Permisos</div>
@@ -221,7 +221,7 @@ const AdminDashboard = () => {
                       </div>
                     </button>
                     
-                    <button className="btn btn-barca-outline text-start py-3 d-flex align-items-center">
+                    <button className="btn btn-pharmacy-outline text-start py-3 d-flex align-items-center">
                       <i className="bi bi-graph-up me-3 fs-5"></i>
                       <div>
                         <div className="fw-bold">Reportes</div>
@@ -240,12 +240,12 @@ const AdminDashboard = () => {
               <div className="card card-hover-effect h-100">
                 <div className="card-header bg-white border-0">
                   <h5 className="mb-0 fw-bold">
-                    <i className="bi bi-pie-chart-fill me-2 text-primary"></i>
+                    <i className="bi bi-pie-chart-fill me-2 text-pharmacy"></i>
                     Distribución de Usuarios
                   </h5>
                 </div>
                 <div className="card-body">
-                  <div className="chart-placeholder-barca">
+                  <div className="chart-placeholder-pharmacy">
                     <div className="text-center">
                       <div className="spinner-border text-light mb-2" role="status"></div>
                       <p className="mb-0">Cargando gráfico...</p>
@@ -253,15 +253,15 @@ const AdminDashboard = () => {
                   </div>
                   <div className="row mt-4 text-center">
                     <div className="col-4">
-                      <div className="h4 text-primary">72%</div>
+                      <div className="h4 text-pharmacy">72%</div>
                       <small className="text-muted">Usuarios</small>
                     </div>
                     <div className="col-4">
-                      <div className="h4 text-warning">18%</div>
+                      <div className="h4 text-pharmacy-tertiary">18%</div>
                       <small className="text-muted">Moderadores</small>
                     </div>
                     <div className="col-4">
-                      <div className="h4 text-danger">10%</div>
+                      <div className="h4 text-pharmacy-secondary">10%</div>
                       <small className="text-muted">Administradores</small>
                     </div>
                   </div>
@@ -273,12 +273,12 @@ const AdminDashboard = () => {
               <div className="card card-hover-effect h-100">
                 <div className="card-header bg-white border-0">
                   <h5 className="mb-0 fw-bold">
-                    <i className="bi bi-exclamation-triangle-fill me-2 text-warning"></i>
+                    <i className="bi bi-exclamation-triangle-fill me-2 text-pharmacy-tertiary"></i>
                     Alertas del Sistema
                   </h5>
                 </div>
                 <div className="card-body">
-                  <div className="alert alert-barca alert-warning mb-3">
+                  <div className="alert alert-pharmacy alert-warning mb-3">
                     <div className="d-flex">
                       <i className="bi bi-exclamation-triangle-fill me-3 fs-4"></i>
                       <div>
@@ -288,7 +288,7 @@ const AdminDashboard = () => {
                     </div>
                   </div>
                   
-                  <div className="alert alert-barca alert-danger mb-3">
+                  <div className="alert alert-pharmacy alert-danger mb-3">
                     <div className="d-flex">
                       <i className="bi bi-shield-exclamation me-3 fs-4"></i>
                       <div>
@@ -298,7 +298,7 @@ const AdminDashboard = () => {
                     </div>
                   </div>
                   
-                  <div className="alert alert-barca alert-info">
+                  <div className="alert alert-pharmacy alert-info">
                     <div className="d-flex">
                       <i className="bi bi-arrow-up-circle-fill me-3 fs-4"></i>
                       <div>

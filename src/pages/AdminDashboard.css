@@ -1,35 +1,35 @@
-/* AdminDashboard.css - Estilo moderno con colores del FC Barcelona */
+/* AdminDashboard.css - Estilo moderno con colores de farmacia */
 :root {
-  --barca-dark-blue: #00285A;
-  --barca-blue: #004d98;
-  --barca-light-blue: #0066CC;
-  --barca-red: #A50044;
-  --barca-dark-red: #7A0033;
-  --barca-gold: #EDBB00;
-  --barca-light: #F5F5F5;
-  --barca-gradient: linear-gradient(135deg, var(--barca-blue) 0%, var(--barca-red) 100%);
+  --pharmacy-green: #4A8D73;      /* Verde principal - suave pero profesional */
+  --pharmacy-dark-green: #2E5D4A; /* Verde oscuro para elementos de énfasis */
+  --pharmacy-light-green: #8BC4A9; /* Verde claro para elementos secundarios */
+  --pharmacy-cream: #F6F8E8;      /* Crema suave para fondos */
+  --pharmacy-blue: #76ABAE;       /* Azul suave para variación */
+  --pharmacy-light-blue: #D4E2E5; /* Azul muy claro para fondos alternativos */
+  --pharmacy-accent: #E59572;     /* Coral suave para acentos */
+  --pharmacy-gradient: linear-gradient(135deg, var(--pharmacy-green) 0%, var(--pharmacy-blue) 100%);
 }
 
 .admin-dashboard {
-  background-color: var(--barca-light);
+  background-color: var(--pharmacy-cream);
   min-height: 100vh;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Encabezado con estilo de camiseta del Barça */
+/* Encabezado con estilo de farmacia */
 .dashboard-header {
-  background: var(--barca-gradient);
+  background: var(--pharmacy-gradient);
   color: white;
   padding: 1.5rem;
   border-radius: 0 0 20px 20px;
-  box-shadow: 0 4px 20px rgba(0, 77, 152, 0.2);
+  box-shadow: 0 4px 20px rgba(74, 141, 115, 0.2);
   margin-bottom: 2rem;
 }
 
 .dashboard-header h1 {
   color: white;
-  font-weight: 800;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  font-weight: 700;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .dashboard-header .subtitle {
@@ -37,7 +37,7 @@
   font-weight: 300;
 }
 
-/* Tarjetas de estadísticas con diseño moderno */
+/* Tarjetas de estadísticas con diseño moderno y suave */
 .stat-card {
   transition: all 0.3s ease;
   border-radius: 12px;
@@ -45,6 +45,7 @@
   overflow: hidden;
   position: relative;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  background-color: white;
 }
 
 .stat-card::before {
@@ -54,12 +55,12 @@
   left: 0;
   width: 100%;
   height: 5px;
-  background: var(--barca-gradient);
+  background: var(--pharmacy-gradient);
 }
 
 .stat-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0, 77, 152, 0.15);
+  box-shadow: 0 15px 30px rgba(74, 141, 115, 0.15);
 }
 
 .stat-card .card-body {
@@ -73,12 +74,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 77, 152, 0.1);
+  background-color: rgba(74, 141, 115, 0.1);
 }
 
 /* Personalización de botones */
-.btn-barca {
-  background: var(--barca-gradient);
+.btn-pharmacy {
+  background: var(--pharmacy-gradient);
   border: none;
   color: white;
   font-weight: 600;
@@ -87,74 +88,75 @@
   transition: all 0.3s ease;
 }
 
-.btn-barca:hover {
+.btn-pharmacy:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(165, 0, 68, 0.3);
+  box-shadow: 0 5px 15px rgba(74, 141, 115, 0.3);
   color: white;
 }
 
-.btn-barca-outline {
+.btn-pharmacy-outline {
   background: transparent;
-  border: 2px solid var(--barca-blue);
-  color: var(--barca-blue);
+  border: 2px solid var(--pharmacy-green);
+  color: var(--pharmacy-green);
   font-weight: 600;
   transition: all 0.3s ease;
+  border-radius: 8px;
 }
 
-.btn-barca-outline:hover {
-  background: var(--barca-blue);
+.btn-pharmacy-outline:hover {
+  background: var(--pharmacy-green);
   color: white;
 }
 
-/* Estilos para la tabla con rayas del Barça */
-.barca-table {
+/* Estilos para la tabla con colores de farmacia */
+.pharmacy-table {
   border-collapse: separate;
   border-spacing: 0;
   border-radius: 12px;
   overflow: hidden;
 }
 
-.barca-table thead th {
-  background-color: var(--barca-blue);
+.pharmacy-table thead th {
+  background-color: var(--pharmacy-green);
   color: white;
   font-weight: 600;
   padding: 1rem;
   border: none;
 }
 
-.barca-table tbody tr:nth-child(even) {
-  background-color: rgba(0, 77, 152, 0.05);
+.pharmacy-table tbody tr:nth-child(even) {
+  background-color: rgba(74, 141, 115, 0.05);
 }
 
-.barca-table tbody tr:hover {
-  background-color: rgba(165, 0, 68, 0.05);
+.pharmacy-table tbody tr:hover {
+  background-color: rgba(118, 171, 174, 0.1);
 }
 
-/* Badges con estilo Barça */
-.badge-barca {
+/* Badges con estilo farmacia */
+.badge-pharmacy {
   padding: 0.35em 0.65em;
   border-radius: 8px;
   font-weight: 600;
 }
 
 .badge-admin {
-  background-color: var(--barca-red);
+  background-color: var(--pharmacy-green);
   color: white;
 }
 
 .badge-moderador {
-  background-color: var(--barca-gold);
-  color: var(--barca-dark-blue);
-}
-
-.badge-usuario {
-  background-color: var(--barca-light-blue);
+  background-color: var(--pharmacy-blue);
   color: white;
 }
 
+.badge-usuario {
+  background-color: var(--pharmacy-light-green);
+  color: var(--pharmacy-dark-green);
+}
+
 /* Gráficos placeholder con estilo */
-.chart-placeholder-barca {
-  background: var(--barca-gradient);
+.chart-placeholder-pharmacy {
+  background: var(--pharmacy-gradient);
   opacity: 0.8;
   border-radius: 12px;
   color: white;
@@ -165,25 +167,25 @@
 }
 
 /* Alertas personalizadas */
-.alert-barca {
+.alert-pharmacy {
   border-radius: 10px;
   border-left: 5px solid;
   padding: 1rem;
 }
 
 .alert-warning {
-  border-left-color: var(--barca-gold);
-  background-color: rgba(237, 187, 0, 0.1);
+  border-left-color: var(--pharmacy-accent);
+  background-color: rgba(229, 149, 114, 0.1);
 }
 
 .alert-danger {
-  border-left-color: var(--barca-red);
-  background-color: rgba(165, 0, 68, 0.1);
+  border-left-color: #e66767;
+  background-color: rgba(230, 103, 103, 0.1);
 }
 
 .alert-info {
-  border-left-color: var(--barca-blue);
-  background-color: rgba(0, 77, 152, 0.1);
+  border-left-color: var(--pharmacy-blue);
+  background-color: rgba(118, 171, 174, 0.1);
 }
 
 /* Animación para spinner */
@@ -191,10 +193,10 @@
   to { transform: rotate(360deg); }
 }
 
-.spinner-barca {
+.spinner-pharmacy {
   animation: spin 1s linear infinite;
-  border: 4px solid rgba(0, 77, 152, 0.2);
-  border-top-color: var(--barca-red);
+  border: 4px solid rgba(74, 141, 115, 0.2);
+  border-top-color: var(--pharmacy-green);
   border-radius: 50%;
 }
 
@@ -205,5 +207,40 @@
 
 .card-hover-effect:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 77, 152, 0.15);
+  box-shadow: 0 10px 25px rgba(74, 141, 115, 0.15);
+}
+
+/* Colores de texto personalizados */
+.text-pharmacy {
+  color: var(--pharmacy-green) !important;
+}
+
+.text-pharmacy-secondary {
+  color: var(--pharmacy-blue) !important;
+}
+
+.text-pharmacy-tertiary {
+  color: var(--pharmacy-accent) !important;
+}
+
+.text-pharmacy-light {
+  color: var(--pharmacy-light-green) !important;
+}
+
+.text-pharmacy-dark {
+  color: var(--pharmacy-dark-green) !important;
+}
+
+/* Cards */
+.card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.card-header {
+  padding: 1rem 1.5rem;
+  background-color: white;
+  border-bottom: 1px solid rgba(74, 141, 115, 0.1);
 }
